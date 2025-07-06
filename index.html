@@ -1,327 +1,277 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arjun Singh</title>
-    <!-- Google Fonts - Inter for a clean, modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom CSS for futuristic animations and aesthetics */
-        :root {
-            --primary-glow: #a78bfa; /* Purple glow */
-            --secondary-glow: #22d3ee; /* Cyan glow */
-            --bg-dark: #0a0a0a;
-            --text-light: #e0e0e0;
-            --text-muted: #a0a0a0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arjun - Software Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            overflow-x: hidden; /* Prevent horizontal scroll from animations */
-            position: relative;
-            min-height: 100vh;
-        }
+    body {
+      background: #111;
+      color: white;
+      overflow-x: hidden;
+    }
 
-        /* Animated background grid */
-        .grid-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background-image:
-                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: gridPan 60s linear infinite;
-        }
+    header {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(30px);
+      padding: 0.8rem 2.5rem;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+    }
 
-        @keyframes gridPan {
-            from { background-position: 0 0; }
-            to { background-position: 4000px 4000px; } /* Large value for continuous pan */
-        }
+    .logo {
+      height: 30px;
+      animation: floatLogo 3s ease-in-out infinite;
+    }
 
-        /* Subtle glowing effect for elements */
-        .glow-text {
-            text-shadow: 0 0 5px var(--primary-glow), 0 0 10px var(--primary-glow);
-        }
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
 
-        .glow-border {
-            border: 1px solid rgba(167, 139, 250, 0.3); /* Soft border */
-            box-shadow: 0 0 10px rgba(167, 139, 250, 0.2), 0 0 20px rgba(167, 139, 250, 0.1);
-            transition: all 0.3s ease-in-out;
-        }
+    .social-icons a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+      transition: transform 0.3s;
+    }
 
-        .glow-border:hover {
-            border-color: var(--primary-glow);
-            box-shadow: 0 0 15px var(--primary-glow), 0 0 30px var(--primary-glow);
-            transform: translateY(-2px);
-        }
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
 
-        /* Button specific glow */
-        .btn-glow {
-            background: linear-gradient(90deg, var(--primary-glow) 0%, var(--secondary-glow) 100%);
-            color: var(--bg-dark);
-            font-weight: 600;
-            border-radius: 0.75rem; /* rounded-xl */
-            padding: 0.75rem 1.5rem; /* py-3 px-6 */
-            box-shadow: 0 0 15px rgba(167, 139, 250, 0.5), 0 0 30px rgba(34, 211, 238, 0.3);
-            transition: all 0.3s ease-in-out;
-            border: none;
-        }
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1570048084928-4d0758d8a960?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .btn-glow:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(167, 139, 250, 0.7), 0 0 40px rgba(34, 211, 238, 0.5);
-        }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
 
-        /* Typing effect cursor */
-        .typing-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1.2em;
-            background-color: var(--secondary-glow);
-            vertical-align: middle;
-            animation: blink 0.7s infinite;
-            margin-left: 2px;
-        }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 2s ease-in;
+    }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        /* Scroll reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
 
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 768px) {
-            .hero-text {
-                font-size: 2rem; /* Smaller font on mobile */
-            }
-            .btn-glow {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-            .grid-background {
-                background-size: 20px 20px; /* Denser grid on mobile */
-                animation: gridPan 30s linear infinite; /* Faster pan on mobile */
-            }
-        }
-    </style>
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: black;
+    }
+
+    .tags-wrapper {
+      overflow: hidden;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .tags {
+      display: inline-flex;
+      gap: 2rem;
+      font-size: 1rem;
+      color: #ccc;
+      animation: scroll-tags 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .tags span {
+      padding: 0 1rem;
+    }
+
+    @keyframes scroll-tags {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .projects-section, .about-section, .contact-section {
+      padding: 5rem 2rem;
+      background: #000;
+    }
+
+    .projects-section h2, .about-section h2, .contact-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .project {
+      margin-bottom: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .project img {
+      max-width: 300px;
+      border-radius: 20px;
+    }
+
+    .project-details {
+      max-width: 500px;
+    }
+
+    .project-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-details p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .about-section p, .contact-section p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #ccc;
+    }
+
+    .contact-section a {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body class="relative">
-    <!-- Animated Background Grid -->
-    <div class="grid-background"></div>
 
-    <!-- Main Content Wrapper -->
-    <div class="relative z-10 min-h-screen flex flex-col justify-between">
-        <!-- Header/Navigation -->
-        <header class="w-full p-4 md:p-6 flex justify-between items-center bg-transparent backdrop-blur-sm fixed top-0 z-20">
-            <div class="text-2xl font-bold text-white glow-text">
-                Arjun Singh
-            </div>
-            <nav>
-                <ul class="flex space-x-4 md:space-x-8">
-                    <li><a href="#about" class="text-gray-300 hover:text-primary-glow transition-colors duration-300">About</a></li>
-                    <li><a href="#projects" class="text-gray-300 hover:text-primary-glow transition-colors duration-300">Projects</a></li>
-                    <li><a href="#contact" class="text-gray-300 hover:text-primary-glow transition-colors duration-300">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+<body>
+  <header>
+    <img src="ARJUN.png" alt="Arjun Logo" class="logo">
+    <div class="social-icons">
+      <a href="https://www.youtube.com/@phonkclub99" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </header>
 
-        <!-- Hero Section -->
-        <section id="hero" class="flex flex-col items-center justify-center min-h-screen text-center px-4 py-20">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight hero-text">
-                Hello, I'm Arjun.
-                <br>
-                <span id="typing-text" class="text-primary-glow glow-text"></span><span class="typing-cursor"></span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl reveal">
-                I'm a 12 Year Old Developer and Content Creator.
-            </p>
-            <a href="#projects" class="btn-glow reveal">Explore My Work</a>
-        </section>
+  <section class="hero">
+    <div class="hero-content">
+      <p>I am</p>
+      <h1>A Software Developer</h1>
+      <div class="tags-wrapper">
+        <div class="tags">
+          <span>Training AI Models</span>
+          <span>GPU-First Priority</span>
+          <span>Responsive UI</span>
+          <span>Cross Platform</span>
+          <span>Training AI Models</span>
+          <span>GPU-First Priority</span>
+          <span>Responsive UI</span>
+          <span>Cross Platform</span>
+        </div>
+      </div>
+      <div class="buttons">
+        <a href="#projects" class="btn-outline">Check My Projects <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-16 px-4 md:px-8 bg-gray-900 bg-opacity-50 backdrop-blur-md rounded-xl mx-auto max-w-4xl glow-border reveal mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center glow-text">About Me</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="text-gray-300 space-y-4">
-                    <p class="reveal">I'm **Arjun Singh**, an 8th-grade student at **Parevartan School** with a strong passion for technology and a knack for development.</p>
-                    <p class="reveal">As a budding developer, I love exploring how things work and building cool digital experiences. My journey into the tech world is just beginning, driven by curiosity and a desire to innovate, one line of code at a time.</p>
-                </div>
-                <div class="flex justify-center items-center reveal">
-                    <!-- Placeholder for a futuristic avatar or icon -->
-                    <svg class="w-32 h-32 text-primary-glow" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 14c-2.67 0-5.33-1.34-8-4 2.67-2.66 5.33-4 8-4s5.33 1.34 8 4c-2.67 2.66-5.33 4-8 4z"/>
-                    </svg>
-                </div>
-            </div>
-        </section>
+  <section class="about-section">
+    <h2>About Me</h2>
+    <p>I'm Arjun,a 12 year old 8th grader software developer. I love tech and creating things that make life smarter and cooler.</p>
+  </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-16 px-4 md:px-8 mx-auto max-w-5xl mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center glow-text reveal">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="bg-gray-800 bg-opacity-70 backdrop-blur-sm rounded-xl p-6 glow-border reveal">
-                    <h3 class="text-xl font-semibold text-primary-glow mb-3">Domain Setup</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Successfully configured custom email addresses and DNS records for `thisisarjun.tech` with Zoho Mail. A deep dive into DNS management!</p>
-                    <a href="#" class="text-secondary-glow hover:underline text-sm font-medium">Learn More &rarr;</a>
-                </div>
-                <!-- Project Card 2 -->
-                <div class="bg-gray-800 bg-opacity-70 backdrop-blur-sm rounded-xl p-6 glow-border reveal">
-                    <h3 class="text-xl font-semibold text-primary-glow mb-3">Futuristic UI Design</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Designed and implemented this very website with a "future world" aesthetic using HTML, Tailwind CSS, and custom JavaScript animations.</p>
-                    <a href="#" class="text-secondary-glow hover:underline text-sm font-medium">View Code &rarr;</a>
-                </div>
-                <!-- Project Card 3 -->
-                <div class="bg-gray-800 bg-opacity-70 backdrop-blur-sm rounded-xl p-6 glow-border reveal">
-                    <h3 class="text-xl font-semibold text-primary-glow mb-3">Upcoming Project Idea</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Brainstorming a new web application focusing on interactive data visualization. Stay tuned for updates!</p>
-                    <a href="#" class="text-secondary-glow hover:underline text-sm font-medium">Idea Details &rarr;</a>
-                </div>
-            </div>
-        </section>
+  <section id="projects" class="projects-section">
+    <h2>My Projects</h2>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-16 px-4 md:px-8 bg-gray-900 bg-opacity-50 backdrop-blur-md rounded-xl mx-auto max-w-3xl glow-border reveal mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center glow-text">Connect with Me</h2>
-            <p class="text-lg text-gray-300 mb-8 text-center reveal">
-                Have a question, a project idea, or just want to chat about tech? Reach out!
-            </p>
-            <div class="flex flex-col items-center space-y-4 reveal">
-                <a href="mailto:contact@thisisarjun.tech" class="btn-glow flex items-center space-x-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                    <span>contact@thisisarjun.tech</span>
-                </a>
-                <a href="mailto:dev@thisisarjun.tech" class="btn-glow flex items-center space-x-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                    </svg>
-                    <span>dev@thisisarjun.tech</span>
-                </a>
-                <!-- Add other emails if you want to display them -->
-                <!-- <a href="mailto:education@thisisarjun.tech" class="btn-glow flex items-center space-x-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 3L1 9l11 6 11-6-11-6zm0 10.98L4.92 10.5 12 6.02l7.08 4.48L12 13.98zM5 17.08l7 4.42 7-4.42V15l-7 4.42L5 15v2.08z"/>
-                    </svg>
-                    <span>education@thisisarjun.tech</span>
-                </a> -->
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="w-full py-6 text-center text-gray-500 text-sm bg-transparent backdrop-blur-sm mt-auto">
-            <p>&copy; 2025 Arjun.tech. All rights reserved. Built with passion for the future.</p>
-        </footer>
+    <div class="project">
+      <img src="lumina.png" alt="Lumina AI">
+      <div class="project-details">
+        <h3>Lumina AI</h3>
+        <p>A fast, lightweight AI chatbot like ChatGPT designed for performance and accuracy. Built with an aesthetic UI and deployed at <a href="https://lumina-ai-2025.github.io/lumina-ai/" target="_blank">lumina-ai-2025.github.io/lumina-ai</a>.</p>
+      </div>
     </div>
 
-    <script>
-        // JavaScript for animations and interactivity
+    <div class="project">
+      <img src="https://placehold.co/300x600?text=FRIDAY+AI" alt="Friday AI">
+      <div class="project-details">
+        <h3>Friday AI</h3>
+        <p>An advanced voice assistant (in development) capable of performing any digital task, answering queries, controlling smart environments, and integrating with AI models for autonomous decision making.</p>
+      </div>
+    </div>
+  </section>
 
-        // 1. Typing Effect for Hero Text
-        const typingTextElement = document.getElementById('typing-text');
-        const phrases = [
-            "A Developer.",
-            "A Creator.",
-            "A Problem Solver.",
-            "Building the Future."
-        ];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 100; // milliseconds per character
-        const deletingSpeed = 50; // milliseconds per character
-        const pauseBeforeDelete = 1500; // milliseconds
-        const pauseBeforeType = 500; // milliseconds
-
-        function typeWriter() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                currentSpeed = pauseBeforeDelete;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                currentSpeed = pauseBeforeType;
-            }
-
-            setTimeout(typeWriter, currentSpeed);
-        }
-
-        // Start typing effect on page load
-        window.onload = () => {
-            typeWriter();
-            // Trigger scroll reveal for initial elements
-            const initialReveals = document.querySelectorAll('.reveal');
-            initialReveals.forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight) {
-                    el.classList.add('active');
-                }
-            });
-        };
-
-
-        // 2. Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                } else {
-                    // Optional: remove 'active' class if element scrolls out of view
-                    // entry.target.classList.remove('active');
-                }
-            });
-        }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        });
-
-        revealElements.forEach(el => {
-            observer.observe(el);
-        });
-
-        // 3. Smooth Scroll for Navigation Links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-    </script>
+  <section class="contact-section">
+    <h2>Contact</h2>
+    <p>If you'd like to reach out or collaborate, feel free to drop an email.</p>
+    <a href="mailto:contact@thisisarjun.tech">contact@thisisarjun.tech</a>
+  </section>
 </body>
+
 </html>
