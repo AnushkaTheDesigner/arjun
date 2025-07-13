@@ -31,10 +31,6 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// 🔁 Rotating Hero Text
-const rotatingText = document.getElementById("rotating-text");
-const words = ["WEB<br>ENTHUSIAST", "PROGRAMMER", "STUDENT DEV"];
-let index = 0;
 
 setInterval(() => {
   index = (index + 1) % words.length;
