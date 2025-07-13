@@ -191,3 +191,18 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+#typing-text {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  width: fit-content;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
