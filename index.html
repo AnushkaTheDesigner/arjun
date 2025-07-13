@@ -33,7 +33,7 @@
     <section class="hero" data-scroll-section>
       <div class="hero-left">
         <h1 class="signature">Arjun</h1>
-        <h2 id="rotating-text">STUDENT<br>DEVELOPER</h2>
+        <h2 id="typing-text"></h2>
         <p>A student dev building insane things with AI, automation, and aesthetic design.</p>
       </div>
       <div class="hero-right">
@@ -46,7 +46,7 @@
     <!-- About -->
     <section id="about" class="content-section" data-scroll-section>
       <h2 class="reveal-text">About Me</h2>
-      <p>I am Arjun Singh, a 12 Year old who is having knowledge in programming, especially web design and API's.</p>
+      <p>I automate school, build powerful tools like Lumina AI, design apps, and launch startups from my laptop. I love animations, bold UI, and thinking ahead of the curve.</p>
       <img class="stock-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80" alt="creative coding">
     </section>
 
@@ -56,16 +56,18 @@
 
       <div class="project-card">
         <h3>Lumina AI</h3>
-        <p>A lightning fast AI which is objectively better than ChatGPT for quick responses. Live Demo at: www.lumina-ai-2025.github.io/lumina-ai/</p>
+        <p>A lightning fast AI which is objectively better than ChatGPT for quick responses. Live Demo at: <a href="https://lumina-ai-2025.github.io/lumina-ai/" target="_blank">lumina-ai-2025.github.io/lumina-ai</a></p>
         <img src="https://images.unsplash.com/photo-1547658717-da2b51169166?auto=format&fit=crop&w=1920&q=80" alt="chatbot">
       </div>
 
       <div class="project-card">
         <h3>FRIDAY AI</h3>
         <p>An All In One Voice Assistant that can do ANYTHING. (In Development)</p>
-        <img src="https://images.unsplash.com/photo-1617450365226-026e98d67f52?auto=format&fit=crop&w=1920&q=80" alt="video download">
+        <img src="https://images.unsplash.com/photo-1617450365226-026e98d67f52?auto=format&fit=crop&w=1920&q=80" alt="voice assistant">
       </div>
-    </section>
+
+    </section> <!-- ✅ FIXED Closing tag -->
+
     <!-- Contact -->
     <section id="contact" class="content-section" data-scroll-section>
       <h2 class="reveal-text">Contact Me</h2>
@@ -91,6 +93,39 @@
       smooth: true,
       lerp: 0.08
     });
+
+    // Typing Effect
+    const words = ["Web Enthusiast", "Student Developer", "Programmer", "Software Dev"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let currentWord = "";
+    let isDeleting = false;
+    const typingElement = document.getElementById("typing-text");
+
+    function typeEffect() {
+      if (!typingElement) return;
+
+      if (isDeleting) {
+        typingElement.textContent = currentWord.substring(0, charIndex--);
+      } else {
+        typingElement.textContent = currentWord.substring(0, charIndex++);
+      }
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1500);
+        return;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        currentWord = words[wordIndex];
+      }
+
+      setTimeout(typeEffect, isDeleting ? 60 : 100);
+    }
+
+    currentWord = words[wordIndex];
+    typeEffect();
   </script>
 </body>
 </html>
