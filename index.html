@@ -1,310 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arjun - Software Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="ARJUN.png">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: #111;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    header {
-      position: fixed;
-      top: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(30px);
-      padding: 0.8rem 2.5rem;
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s ease;
-    }
-
-    .logo {
-      height: 30px;
-      animation: floatLogo 3s ease-in-out infinite;
-    }
-
-    @keyframes floatLogo {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-
-    .social-icons a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
-      margin-left: 0.5rem;
-      transition: transform 0.3s;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.2);
-    }
-
-    .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1570048084928-4d0758d8a960?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      animation: fadeIn 2s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-content h1 {
-      font-size: 3.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-outline {
-      border: 2px solid white;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .btn-outline:hover {
-      background: white;
-      color: black;
-    }
-
-    .tags-wrapper {
-      overflow: hidden;
-      width: 100%;
-      margin-top: 1rem;
-    }
-
-    .tags {
-      display: inline-flex;
-      gap: 2rem;
-      font-size: 1rem;
-      color: #ccc;
-      animation: scroll-tags 20s linear infinite;
-      white-space: nowrap;
-    }
-
-    .tags span {
-      padding: 0 1rem;
-    }
-
-    @keyframes scroll-tags {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    .projects-section, .about-section, .contact-section {
-      padding: 5rem 2rem;
-      background: #000;
-    }
-
-    .projects-section h2, .about-section h2, .contact-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .project {
-      margin-bottom: 3rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .project img {
-      max-width: 300px;
-      border-radius: 20px;
-    }
-
-    .project-details {
-      max-width: 500px;
-    }
-
-    .project-details h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .project-details p {
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    .about-section p, .contact-section p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      text-align: center;
-      color: #ccc;
-    }
-
-    .contact-section a {
-      display: block;
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #fff;
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arjun Singh — Web Enthusiast</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <!-- Locomotive Scroll -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
 </head>
-
 <body>
-  <header>
-    <img src="ARJUN.png" alt="Arjun Logo" class="logo">
-    <div class="social-icons">
-      <a href="https://www.youtube.com/@phonkclub99" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <p>I am</p>
-      <h1>A Software Developer</h1>
-      <div class="tags-wrapper">
-        <div class="tags">
-          <span>Training AI Models</span>
-          <span>GPU-First Priority</span>
-          <span>Responsive UI</span>
-          <span>Cross Platform</span>
-          <span>Training AI Models</span>
-          <span>GPU-First Priority</span>
-          <span>Responsive UI</span>
-          <span>Cross Platform</span>
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+
+  <!-- 🚀 Locomotive Scroll Container Start -->
+  <div data-scroll-container>
+
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">Arjun Singh</div>
+      <div class="location-time" id="clock">Loading...</div>
+      <div class="nav-links">
+        <a href="#about">(ABOUT)</a>
+        <a href="#projects">(PROJECTS)</a>
+        <a href="#contact">(CONTACT)</a>
+      </div>
+      <div class="hamburger">☰</div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" data-scroll-section>
+      <div class="hero-left">
+        <h1 class="signature">Arjun</h1>
+        <h2 id="rotating-text">WEB<br>ENTHUSIAST</h2>
+        <p>A student dev building insane things with AI, automation, and aesthetic design.</p>
+      </div>
+      <div class="hero-right">
+        <div class="pattern-circle">
+          <div class="circle-stripes"></div>
         </div>
       </div>
-      <div class="buttons">
-        <a href="#projects" class="btn-outline">Check My Projects <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="about-section">
-    <h2>About Me</h2>
-    <p>I'm Arjun,a 12 year old 8th grader software developer. I love tech and creating things that make life smarter and cooler.</p>
-  </section>
+    <!-- About -->
+    <section id="about" class="content-section" data-scroll-section>
+      <h2 class="reveal-text">About Me</h2>
+      <p>I automate school, build powerful tools like Lumina AI, design apps, and launch startups from my laptop. I love animations, bold UI, and thinking ahead of the curve.</p>
+      <img class="stock-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80" alt="creative coding">
+    </section>
 
-  <section id="projects" class="projects-section">
-    <h2>My Projects</h2>
+    <!-- Projects -->
+    <section id="projects" class="content-section" data-scroll-section>
+      <h2 class="reveal-text">Projects</h2>
 
-    <div class="project">
-      <img src="lumina.png" alt="Lumina AI">
-      <div class="project-details">
+      <div class="project-card">
         <h3>Lumina AI</h3>
-        <p>A fast, lightweight AI chatbot like ChatGPT designed for performance and accuracy. Built with an aesthetic UI and deployed at <a href="https://lumina-ai-2025.github.io/lumina-ai/" target="_blank">lumina-ai-2025.github.io/lumina-ai</a>.</p>
+        <p>A lightning-fast chatbot UI using Gemini API, better than ChatGPT for speed.</p>
+        <img src="https://images.unsplash.com/photo-1547658717-da2b51169166?auto=format&fit=crop&w=1920&q=80" alt="chatbot">
       </div>
-    </div>
 
-    <div class="project">
-      <img src="https://placehold.co/300x600?text=FRIDAY+AI" alt="Friday AI">
-      <div class="project-details">
-        <h3>Friday AI</h3>
-        <p>An advanced voice assistant (in development) capable of performing any digital task, answering queries, controlling smart environments, and integrating with AI models for autonomous decision making.</p>
+      <div class="project-card">
+        <h3>TubeFetch</h3>
+        <p>Animated YouTube downloader supporting MP4/MP3 + bitrates, ultra-clean UI.</p>
+        <img src="https://images.unsplash.com/photo-1617450365226-026e98d67f52?auto=format&fit=crop&w=1920&q=80" alt="video download">
       </div>
-    </div>
-  </section>
 
-  <!-- Add this below your Projects section, before Contact -->
-<section class="projects-section">
-  <h2>My Book</h2>
+      <div class="project-card">
+        <h3>SmartSearch.AI</h3>
+        <p>A browser extension + AI engine to search smarter and faster. Auto summary built in.</p>
+        <img src="https://images.unsplash.com/photo-1559027615-5c50c6f44e85?auto=format&fit=crop&w=1920&q=80" alt="search">
+      </div>
+    </section>
 
-  <div class="project">
-    <img src="cover.png" alt="The Timebreaker Book Cover">
-    <div class="project-details">
-      <h3>The Timebreaker</h3>
-      <p><strong>Author:</strong> Arjun Singh</p>
-      <p>A thrilling sci-fi book exploring time, power, and destiny. Written by a passionate young developer and storyteller, this book is available in paperback and digital formats.</p>
-      <p><strong>Price:</strong> ₹399 (One Copy) </p>
-      <p><a href="https://www.bribooks.com/bookstore/the-timebreaker-by-arjun-singh" target="_blank" style="color:#00f;text-decoration:underline;">Read or Buy Now on Bribooks</a></p>
-    </div>
+    <!-- Contact -->
+    <section id="contact" class="content-section" data-scroll-section>
+      <h2 class="reveal-text">Contact Me</h2>
+      <p>Want to build something together? Reach me at:</p>
+      <p><a href="mailto:contact@thisisarjun.tech">contact@thisisarjun.tech</a></p>
+      <img class="stock-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80" alt="contact">
+    </section>
+
+    <footer data-scroll-section>
+      <p>© 2025 Arjun Singh | Built with code, passion, and infinite animations.</p>
+    </footer>
+
   </div>
-</section>
+  <!-- 🚀 Locomotive Scroll Container End -->
 
-  <section class="projects-section">
-  <h2>Featured Book</h2>
-
-  <div class="project">
-    <img src="icycover.png" alt="The Icy Trip Book Cover">
-    <div class="project-details">
-      <h3>The Icy Trip</h3>
-      <p><strong>Author:</strong> Aaradhy Gupta</p>
-      <p>A thrilling book on a adventure in the icy world.</p>
-      <p><strong>Price:</strong> ₹399 (One Copy)</p>
-      <p><a href="https://www.bribooks.com/bookstore/the-icy-trip-by-aaradhy-gupta" target="_blank" style="color:#00f;text-decoration:underline;">Read or Buy Now on Bribooks</a></p>
-    </div>
-  </div>
-</section>
-
-
-  <section class="contact-section">
-    <h2>Contact</h2>
-    <p>If you'd like to reach out or collaborate, feel free to drop an email.</p>
-    <a href="mailto:contact@thisisarjun.tech">contact@thisisarjun.tech</a>
-  </section>
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script>
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true,
+      lerp: 0.08
+    });
+  </script>
 </body>
-
 </html>

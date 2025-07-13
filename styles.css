@@ -1,0 +1,193 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+body {
+  background-color: #000;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: none;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+button {
+  background: none;
+  border: none;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Cursor */
+#cursor {
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+}
+#cursor.cursor-grow {
+  width: 40px;
+  height: 40px;
+}
+
+/* Locomotive Scroll Container */
+[data-scroll-container] {
+  will-change: transform;
+}
+
+/* Scroll Animations */
+[data-scroll] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+[data-scroll].is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 20px 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background-color: transparent;
+}
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5rem;
+}
+.location-time {
+  font-size: 1rem;
+}
+.nav-links a {
+  margin-left: 30px;
+  font-weight: bold;
+}
+.hamburger {
+  display: none;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 150px 5vw 100px;
+  min-height: 100vh;
+}
+.hero-left {
+  max-width: 50%;
+}
+.hero-left h1.signature {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.hero-left h2 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  transition: opacity 0.4s ease-in-out;
+}
+.hero-left p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+.hero-right .pattern-circle {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+.circle-stripes {
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    white,
+    white 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Content Sections */
+.content-section {
+  padding: 120px 5vw;
+}
+.content-section h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.content-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.stock-img {
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+/* Project Cards */
+.project-card {
+  background: #111;
+  padding: 20px;
+  margin: 40px 0;
+  border-radius: 12px;
+  border: 1px solid #333;
+  transition: transform 0.3s ease;
+}
+.project-card:hover {
+  transform: scale(1.03);
+}
+.project-card img {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 50px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* Optional Animation Utility Classes */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in-up.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
